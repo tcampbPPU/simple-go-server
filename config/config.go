@@ -9,6 +9,6 @@ import (
 func Init(f string) {
 	err := godotenv.Load(f)
 	if err != nil {
-		log.Fatalf("Some error occured. Err: %s", err)
+		log.Fatalf("Some error occurred. Err: %s", err)
 	}
 }
