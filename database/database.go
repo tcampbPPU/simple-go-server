@@ -58,7 +58,7 @@ func (d *Database) Connect() error {
 	}
 
 	// Migrate the schema
-	d.Migrate()
+	migrate()
 
 	return nil
 }
@@ -73,6 +73,6 @@ func (d *Database) Close() error {
 	return sqlDB.Close()
 }
 
-func (d *Database) Migrate() {
+func migrate() {
 	DB.AutoMigrate(&models.Product{})
 }

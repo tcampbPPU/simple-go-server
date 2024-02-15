@@ -11,6 +11,7 @@ type Product struct {
 	Name      string
 	Code      string
 	Price     uint
+	Foo       string `gorm:"-"` // Ignored
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt gorm.DeletedAt
@@ -21,5 +22,8 @@ func (p *Product) TableName() string {
 }
 
 func (p *Product) AfterFind(tx *gorm.DB) (err error) {
+
+	p.Foo = "bar"
+
 	return
 }
